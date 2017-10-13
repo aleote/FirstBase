@@ -1,0 +1,27 @@
+{
+  "name": "based",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aleote/FirstBase.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aleote/FirstBase/issues"
+  },
+  "homepage": "https://github.com/aleote/FirstBase#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "express-handlebars": "^3.0.0",
+    "mysql2": "^1.4.2",
+    "sequelize": "^4.13.10"
+  }
+}
