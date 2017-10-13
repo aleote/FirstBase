@@ -1,46 +1,44 @@
-// Dependencies
-// =============================================================
 
-// This may be confusing but here Sequelize (capital) references the standard library
-var Sequelize = require("sequelize");
-// sequelize (lowercase) references our connection to the DB.
-var sequelize = require("../config/connection.js");
+module.exports = function(sequelize, DataTypes) {
+  var User = sequelize.define("User", {
+  	id: {
+    	type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true
+   },
+   username: {
+   	type: DataTypes.STRING,
+   	allowNull: false
+   },
+   fName: {
+   	type: DataTypes.STRING,
+   	allowNull: false
+   },
+   lName: {
+   	type: DataTypes.STRING,
+   	allowNull: false
+   },
+   email: {
+   	type: DataTypes.STRING,
+   	allowNull: false
+   },
+   phonenumber: {
+   	type: DataTypes.STRING,
+   	allowNull: false
+   },
+   password: {
+   	type: DataTypes.STRING,
+   	allowNull: false
+   }, 
+   classId: {
+   	type: DataTypes.STRING,
+   	allowNull: false
+   }
 
-// Creates a "Chirp" model that matches up with DB
-var User = sequelize.define("User", {
-  username: {
-    type: Sequelize.STRING,
-    allowNull: false
-  },
-  firstName: {
-    type: Sequelize.STRING
-  },
-  lastName: {
-    type: Sequelize.STRING
-  },
-  email: {
-    type: Sequelize.STRING
-  },
-  phone: {
-    type: Sequelize.STRING,
-    allowNull: false
-  },
-  password: {
-    type: Sequelize.STRING,
-    allowNull: false
-  },
-  teachEnrolled: {
-    type: Sequelize.INTEGER
-  },
-  photo: {
-    type: Sequelize.STRING
-  }
-}, {
-  timestamps: false
-});
+  });
 
-// Syncs with DB
-Class.sync();
+  return User;
+}
 
-// Makes the Chirp Model available for other files (will also create a table)
-module.exports = Class;
+
+
