@@ -1,0 +1,63 @@
+<h1>Create an Account</h1>
+<form id="createDetails">
+	<div>
+		<h4>First Name:</h4>
+		<input type="text" id="fname" name="name">
+		<br>
+		<h4>Last Name:</h4>
+		<input type="text" id="lname" name="lname">
+		<br>
+		<h4>Email:</h4>
+		<input type="text" id="email" name="email">
+		<br>
+		<h4>Phone Number:</h4>
+		<input type="text" id="phoneNum" name="phoneNumber">
+		<br>
+	</div>
+</form>
+<br>
+<br>
+<br>
+<h1>Create User Name and Password</h1>
+<form id="createLog">
+	<div>
+		<h4>Username:</h4>
+		<input type="text" id="username" name="newUserName">
+		<br>
+		<h4>Password:</h4>
+		<input id="newPassword" type="password" name="Password">
+		<br>
+		<h4>Re-Enter Password:</h4>
+		<input id="password2" type="password" name="newVerifyPass">
+	</div>
+</form>
+<br>
+<br>
+<button id="submitNewAccount">Submit</button>
+
+<script type="text/javascript">
+	$("#submitNewAccount").on("click", function(){
+		var password = $("#newPassword").val();
+		var passwordVerify = $("#password2").val();
+		if (password !== passwordVerify) {
+			alert("Password must match, please re-enter")
+		} else {
+
+			var createUser = {
+				fname: $("#fname").val(),
+				lname: $("#lname").val(),
+				email: $("#email").val(),
+				phone: $("#phoneNum").val(),
+				username: $("#username").val(),
+				password: $("#newPassword").val()
+			}
+
+			console.log(createUser);
+			$.post("/user/register", createUser)
+				.done(function(data){
+					console.log(data)
+				})
+		}		
+	})
+</script>
+ 

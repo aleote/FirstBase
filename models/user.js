@@ -1,10 +1,10 @@
 module.exports = function(sequelize, DataTypes) {
   var User = sequelize.define("User", {
-  	id: {
-    	type: DataTypes.INTEGER,
-      autoIncrement: true,
-      primaryKey: true
-   },
+  	// id: {
+   //  	type: DataTypes.INTEGER,
+   //    autoIncrement: true,
+   //    primaryKey: true
+   // },
    username: {
    	type: DataTypes.STRING,
    	allowNull: false
@@ -31,10 +31,23 @@ module.exports = function(sequelize, DataTypes) {
    }, 
    classId: {
    	type: DataTypes.STRING,
-   	allowNull: false
+   	allowNull: true,
+    defaultValue: "None"
    }
-
   });
+
+
+  // uncomment when classes table is model is made
+  // User.associate = function(models) {
+  //   User.hasMany(models.Classes, {
+  //     onDelete: "CASCADE",
+  //     foreignKey: {
+  //       allowNull: false
+  //     }
+  //   });
+  // }
+
+
 
   return User;
 }
