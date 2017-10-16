@@ -1,5 +1,5 @@
 <h1>Create an Account</h1>
-<form id="createDetails">
+<form id="createDetails" method="POST" enctype="multipart/form-data">
 	<div>
 		<h4>First Name:</h4>
 		<input type="text" id="fname" name="name">
@@ -13,8 +13,13 @@
 		<h4>Phone Number:</h4>
 		<input type="text" id="phoneNum" name="phoneNumber">
 		<br>
+		<h4>Image:</h4>
+		<input type="file" id="proPic" name="proPic">
+		<button type="submit"id="uploadImg"class="uploadBtn">Upload</button>
+	
 	</div>
 </form>
+
 <br>
 <br>
 <br>
@@ -42,6 +47,9 @@
 		if (password !== passwordVerify) {
 			alert("Password must match, please re-enter")
 		} else {
+			var nameString = $("#proPic").val();
+   			var imageName = nameString.split("/\/").pop();
+			var imageLoc = "uploads/" + imageName;
 
 			var createUser = {
 				fname: $("#fname").val(),
@@ -49,15 +57,50 @@
 				email: $("#email").val(),
 				phone: $("#phoneNum").val(),
 				username: $("#username").val(),
-				password: $("#newPassword").val()
+				password: $("#newPassword").val(),
+				image: imageLoc
 			}
 
 			console.log(createUser);
 			$.post("/user/register", createUser)
 				.done(function(data){
-					console.log(data)
+					console.log(data);
 				})
 		}		
-	})
+	});
+
+	$("#uploadImg").on("click", function(event) {
+	  event.preventDefault();
+
+	  // Make a newImage object
+	  var newImage = {
+	    profileImage: $("#proPic")[0].files[0]
+
+	  };
+
+	  console.log(newImage);
+
+	  // Send an AJAX POST-request with jQuery
+	  $.ajax({
+	  	url: "/profile",
+	  	data: newImage,
+	  	method: "post",
+	  	processData: false,
+	  	ContentType: false
+
+	  })
+	    // On success, run the following code
+	    .then(function() {
+	    	console.log("sucess")
+	      // var row = $("<div>");
+	      // row.addClass("img");
+
+	      // row.append("<p>" + newImage.image + " image: </p>");
+	      // row.append("<p>" + createUser.body + "</p>");
+	    });
+
+	  // Empty each input box by replacing the value with an empty string
+	  // $("#uploadImg").val("");
+	});
 </script>
  

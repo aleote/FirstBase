@@ -34,7 +34,13 @@ module.exports = function(sequelize, DataTypes) {
    	type: DataTypes.STRING,
    	allowNull: true,
     defaultValue: "None"
+   },
+   image: {
+    type: DataTypes.STRING,
+    allowNull: true,
+    defaultValue: "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"
    }
+
   });
 
 

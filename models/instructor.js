@@ -27,7 +27,7 @@ module.exports = function(sequelize, DataTypes) {
     teachClass: {
       type: DataTypes.STRING
     },
-    photo: {
+    image: {
       type: DataTypes.STRING
     }
   }, {

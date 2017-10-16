@@ -1,6 +1,6 @@
 var express = require("express");
 var bodyParser = require("body-parser");
-
+var profile = require("./routes/profile")
 
 var app = express();
 var PORT = process.env.PORT || 8080;
@@ -14,6 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
+app.use("/profile", profile);
 // Static directory
 app.use(express.static("public"));
 

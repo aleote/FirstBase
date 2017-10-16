@@ -1,11 +1,14 @@
-// var db = require("../models/user.js");
 var express = require("express");
+var app = express();
+
+
 var db = require("../models");
 
 module.exports = function(app) {
 
 	app.get("/", function(req, res) {
 		res.render("index")
+
 
 	});
 //************* use these to for get and post...havent gotten it working yet*********
