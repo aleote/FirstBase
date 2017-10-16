@@ -1,13 +1,25 @@
 // var db = require("../models/user.js");
 var express = require("express");
 var db = require("../models");
+var passport = require("../config/passport");
 
 module.exports = function(app) {
 
 	app.get("/", function(req, res) {
+		console.log("inside root get")
 		res.render("index")
 
 	});
+
+	app.post('/user/login', passport.authenticate('local'),
+  function(req, res) {
+  	console.log("yea");
+   console.log(req.body) 
+   console.log(req.user)
+    //res.json(res);
+  });
+
+
 //************* use these to for get and post...havent gotten it working yet*********
 	// app.get("/", function(req, res) {
 	// 	db.User.findAll({}).then(function(result){
@@ -32,7 +44,24 @@ module.exports = function(app) {
 
 
 	app.get("/user/register", function(req, res){
+		console.log("made it to register")
 		res.render("testSignup")
+	});
+
+	app.get("/user/protected", function(req, res){
+		console.log(req.user)
+		if(!req.user) {
+			return res.send("not in") 
+		} else {
+			res.send("logged in")
+		}
+		// console.log("failed")
+		// res.json("/user/failed2");
+	});
+
+	app.get("/user/failed2", function(req, res){
+		console.log("failed")
+		res.render("loginTest");
 	});
 
 
@@ -53,21 +82,21 @@ module.exports = function(app) {
 
 
 
-	app.post("/user/login", function(req, res){
+	// app.post("/user/login", function(req, res){
 		
 
 		
-		var loginName = req.body.name;
-		var loginPassword = req.body.password;
+	// 	var loginName = req.body.name;
+	// 	var loginPassword = req.body.password;
 
 
 
 
 
 
-		return res.json(loginName);
-		console.log(req.body)
-	})
+	// 	return res.json(loginName);
+	// 	console.log(req.body)
+	// })
 
 
 };
