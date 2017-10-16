@@ -3,30 +3,30 @@
 module.exports = function(sequelize, DataTypes) {
   var Class = sequelize.define("Class", {
     className: {
-    type: Sequelize.STRING,
+    type: DataTypes.STRING,
     allowNull: false
     },
     startTime: {
-      type: Sequelize.DATE,
+      type: DataTypes.DATE,
       allowNull: false
     },
     endTime: {
-      type: Sequelize.DATE,
+      type: DataTypes.DATE,
       allowNull: false
     },
     instructorID: {
-      type: Sequelize.INTEGER,
+      type: DataTypes.INTEGER,
     },
     limitPpl: {
-      type: Sequelize.INTEGER,
+      type: DataTypes.INTEGER,
       allowNull: false
     },
     enrolledPpl: {
-      type: Sequelize.INTEGER,
+      type: DataTypes.INTEGER,
       allowNull: false
     },
     category: {
-      type: Sequelize.STRING
+      type: DataTypes.STRING
     }
   }, {
     timestamps: false

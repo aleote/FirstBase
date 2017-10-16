@@ -1,34 +1,34 @@
 module.exports = function(sequelize, DataTypes) {
   var Instructor = sequelize.define("Instructor", {
     username: {
-    type: Sequelize.STRING,
+    type: DataTypes.STRING,
     allowNull: false
     },
     firstName: {
-      type: Sequelize.STRING
+      type: DataTypes.STRING
     },
     lastName: {
-      type: Sequelize.STRING
+      type: DataTypes.STRING
     },
     email: {
-      type: Sequelize.STRING
+      type: DataTypes.STRING
     },
     phone: {
-      type: Sequelize.STRING,
+      type: DataTypes.STRING,
       allowNull: false
     },
     password: {
-      type: Sequelize.STRING,
+      type: DataTypes.STRING,
       allowNull: false
     },
     bio: {
-      type: Sequelize.STRING
+      type: DataTypes.STRING
     },
     teachClass: {
-      type: Sequelize.STRING
+      type: DataTypes.STRING
     },
     photo: {
-      type: Sequelize.STRING
+      type: DataTypes.STRING
     }
   }, {
     timestamps: false
