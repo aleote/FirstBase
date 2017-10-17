@@ -36,6 +36,7 @@ module.exports = function(sequelize, DataTypes) {
     timestamps: false
   });
 
+
   // Instructor.associate = function(models) {
   //   // Associating Author with Posts
   //   // When an Author is deleted, also delete any associated Posts
@@ -43,6 +44,7 @@ module.exports = function(sequelize, DataTypes) {
   //     onDelete: "cascade"
   //   });
   // };
+
 
   // Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database
   Instructor.prototype.validPassword = function(password) {

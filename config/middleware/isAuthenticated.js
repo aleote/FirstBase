@@ -5,8 +5,9 @@ module.exports = function(req, res, next) {
     return next();
   }
 
+
   // If the user isnt' logged in, redirect them to the login page
+
 
   return res.render("createAccount");
 
-};
