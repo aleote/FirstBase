@@ -1,49 +1,52 @@
-// Dependencies
-// =============================================================
+var bcrypt = require("bcrypt-nodejs");
 
-// This may be confusing but here Sequelize (capital) references the standard library
-var Sequelize = require("sequelize");
-// sequelize (lowercase) references our connection to the DB.
-var sequelize = require("../config/connection.js");
-
-// Creates a "Chirp" model that matches up with DB
-var Instructor = sequelize.define("Instructor", {
-  username: {
-    type: Sequelize.STRING,
+module.exports = function(sequelize, DataTypes) {
+  var Instructor = sequelize.define("Instructor", {
+    username: {
+    type: DataTypes.STRING,
     allowNull: false
-  },
-  firstName: {
-    type: Sequelize.STRING
-  },
-  lastName: {
-    type: Sequelize.STRING
-  },
-  email: {
-    type: Sequelize.STRING
-  },
-  phone: {
-    type: Sequelize.STRING,
-    allowNull: false
-  },
-  password: {
-    type: Sequelize.STRING,
-    allowNull: false
-  },
-  bio: {
-    type: Sequelize.STRING
-  },
-  teachClass: {
-    type: Sequelize.STRING
-  },
-  photo: {
-    type: Sequelize.STRING
-  }
-}, {
-  timestamps: false
-});
+    },
+    firstName: {
+      type: DataTypes.STRING
+    },
+    lastName: {
+      type: DataTypes.STRING
+    },
+    email: {
+      type: DataTypes.STRING
+    },
+    phone: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    bio: {
+      type: DataTypes.STRING
+    },
+    teachClass: {
+      type: DataTypes.STRING
+    },
+    photo: {
+      type: DataTypes.STRING
+    }
+  }, {
+    timestamps: false
+  });
 
-// Syncs with DB
-Class.sync();
+  // Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database
+  Instructor.prototype.validPassword = function(password) {
+    return bcrypt.compareSync(password, this.password);
+  };
 
-// Makes the Chirp Model available for other files (will also create a table)
-module.exports = Class;
+  // Hooks are automatic methods that run during various phases of the User Model lifecycle
+  // In this case, before a User is created, we will automatically hash their password
+  Instructor.hook("beforeCreate", function(user) {
+    user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
+  });
+
+  return Instructor;
+
+}

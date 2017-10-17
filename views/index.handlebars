@@ -1,19 +1,30 @@
 <h1>(test)Welcome...</h1>
-<div>
+{{!-- <div>
 	<h3>first time?..signup</h3>
 
-	<a href="/user/register"><button>Sign up here</button></a>
+	<a href="/register"><button>Sign up here</button></a>
 </div>
 <br>
 <br>
 <div>
-	<button id="sign-in">sign in here</button>
+	<button id="sign-in">Sign in here</button>
 </div>
 <br>
 <br>
 <div>
 	<button id="sample-modal">modal-2</button>
 </div>
+<br>
+<br>
+<div>
+	<a href="/user/members"><button id="only-members">For members</button></a>
+</div>
+<br>
+<br>
+<div>
+	<a href="/logout"><button id="logout">Log Out</button></a>
+</div> --}}
+
 
 <div class="modal fade" id="myModal2" role="dialog">
 	   <div class="modal-dialog">
@@ -22,7 +33,7 @@
 	      <div class="modal-content">
 	        <div class="modal-header">
 	          <button type="button" class="close" data-dismiss="modal">&times;</button>
-	          <h3 id="name">Welcom back, </h3>
+	          <h3 id="name">Welcome back, </h3>
 	          
 	        </div>
 	        <div class="modal-body">
@@ -45,18 +56,21 @@
 	      <div class="modal-content">
 	        <div class="modal-header">
 	          <button type="button" class="close" data-dismiss="modal">&times;</button>
-	          <h3 id="name">Sign In</h3>
+	          <h3 id="signIN">Sign In</h3>
 	          
 	        </div>
 	        <div class="modal-body">
 	          <h3>Name</h3>
-	          <input id="user-name" type="text" name="log-name">
+	          <input id="user_name" type="text" name="log-name">
 	          <br>
 	        	 <h3>Password</h3>
-	          <input id="user-password" type="password" name="log-password">
+	          <input id="user_password" type="password" name="log-password">
 	        </div>
 	        <div class="modal-footer">
 	          <button id="user-login" type="button" class="btn btn-default" data-dismiss="modal">Login</button>
+	          <div>
+	          	<h3>Not a member? Sign up <a href="/register">here</a></h3>
+	          </div>
 	        </div>
 	      </div>
 	      
@@ -67,26 +81,49 @@
 <script type="text/javascript">
 	$("#sign-in").on("click", function(event){
 		 $('#myModal').modal('show');
+		 // var user_name = $("#user_name").val();
+		 // var user_password = $("#user_password").val();
+		 // console.log(user_name + " " + user_password);
+
+		 // var loginUser = {
+		 // 	username: user_name,
+		 // 	password: user_password
+		 // }
+
+		 // $.post("user/login", loginUser)
+		 // 	.done(function(data){
+		 // 		console.log(data);
+		 // 	})
+
 	})
 
 	$("#sample-modal").on("click", function(event){
 		 $('#myModal2').modal('show');
 	})	
 
+	$("#only-members").on("click", function(){
+		$.get("/user/members")
+		.done(function(result){
+			console.log(result)
+		})
+	})
+
 	$("#user-login").on("click", function(){
-		var userName = $("#user-name").val();
-		var userPass = $("#user-password").val();
+		var userName = $("#user_name").val();
+		var userPass = $("#user_password").val();
 		var userDetails = {
-			name: userName,
+			username: userName,
 			password: userPass
 		}
 
 		console.log(userDetails)
-		$.post("user/login", userDetails)
+		$.post("/user/login", userDetails)
 			.done(function(data){
 				console.log(data)
-				$("#welcome-back").html(data)
-				$('#myModal2').modal('show');
+				document.write(data)
+				//window.location.replace(data)
+				// $("#welcome-back").html(data)
+				// $('#myModal2').modal('show');
 
 			})
 	})

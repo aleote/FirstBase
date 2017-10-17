@@ -7,7 +7,22 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<h1>Test in Main</h1>
+	<nav class="navbar navbar-default navbar-static-top">
+  		<div class="container">
+  			<a href="/register"><button>Sign up here</button></a>
+    		<div style='padding-top: 12px;'>
+				<button id="sign-in">Sign in here</button>
+			</div>
+			<div>
+				<a href="/user/members"><button id="only-members">For members</button></a>
+			</div>
+			<div>
+				<a href="/logout"><button id="logout">Log Out</button></a>
+			</div>
+  		</div>
+	</nav>
+
+
 	{{{ body }}}
 </body>
 </html>
