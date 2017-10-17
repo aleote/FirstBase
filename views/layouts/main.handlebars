@@ -1,13 +1,61 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <script src="https://code.jquery.com/jquery.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-</head>
-<body>
-	<h1>Test in Main</h1>
-	{{{ body }}}
-</body>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>{{title}}</title>
+		<script src="https://code.jquery.com/jquery.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+		<script src="/assets/js/user.js"></script>
+		<script src="/assets/js/signin.js"></script>
+		<link rel="stylesheet" href="/assets/css/reset.css">
+		<link rel="stylesheet" href="/assets/css/bootstrap.css">
+		
+		<link rel="stylesheet" href="/assets/css/burger_style.css">
+		<link href="https://fonts.googleapis.com/css?family=Bungee+Inline|Lato" rel="stylesheet">
+	</head>
+	<body>
+		{{! Import the contents of header.html from partials}}
+		{{> header/header }}
+		{{! Every view gets inserted here }}
+		{{{body}}}
+		{{! Import the contents of footer.html from partials}}
+		{{!-- {{> footer}} --}}
+		
+		<!-- Modal -->
+<div class="modal fade" role="dialog" data-toggle="modal" id="myModal" data-target="#myModal">
+<div class="modal-dialog">
+				
+				<!-- Modal content-->
+<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="myModal">&times;</button>
+		<h4 id="bestMatchName" class="modal-title">Create User Name and Password</h4>
+			</div>
+			<div class="modal-body">
+				<h1></h1>
+				<form id="createLog">
+					<div>
+						<h4>Username:</h4>
+						<input type="text" id="username" name="newUserName">
+						<br>
+						<h4>Password:</h4>
+						<input id="newPassword" type="password" name="Password">
+						<br>
+						<h4>Re-Enter Password:</h4>
+						<input id="password2" type="password" name="newVerifyPass">
+					</div>
+				</form>
+				<br>
+				<br>
+				<button id="submitNewAccount">Submit</button>
+											
+				</div>
+					<div class="modal-footer">
+						<button id="closeWindow" type="button" class="btn btn-default" data-dismiss="myModal">Close</button>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</body>
 </html>

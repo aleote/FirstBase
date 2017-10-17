@@ -17,20 +17,24 @@ var storage = multer.diskStorage({
 
 var upload = multer({ storage: storage }).single('profileImage');
  
-router.post('/', upload, function (req, res) {
-  
-    // if (err) {
-    //   console.log(err);
-    // }
+router.post('/', function (req, res, next) {
 
+  upload(req, res, function (err) {
+    if (err) {
+      console.log(err);
+
+    }
+    // console.log(profileImage);
+    console.log("--------");
     console.log(req.file);
-
+    console.log("--------");
   res.json({
     success: true,
     message: "image loaded"
   });
      // Everything went fine 
-  });
+  })
+});
 
 
 module.exports = router;

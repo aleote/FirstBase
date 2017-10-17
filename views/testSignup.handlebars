@@ -49,7 +49,7 @@
 		} else {
 			var nameString = $("#proPic").val();
    			var imageName = nameString.split("/\/").pop();
-			var imageLoc = "uploads/" + imageName;
+			var imageLoc = imageName;
 
 			var createUser = {
 				fname: $("#fname").val(),
@@ -75,23 +75,22 @@
 	  // Make a newImage object
 	  var newImage = {
 	    profileImage: $("#proPic")[0].files[0]
-
 	  };
 
 	  console.log(newImage);
 
 	  // Send an AJAX POST-request with jQuery
-	  $.ajax({
-	  	url: "/profile",
-	  	data: newImage,
-	  	method: "post",
-	  	processData: false,
-	  	ContentType: false
+	 $.ajax({
+      url: "/profile",
+      data: newImage,
+      method: "post",
+      processData: false,
+      Content-Type: "multipart/form-data"
 
-	  })
-	    // On success, run the following code
-	    .then(function() {
-	    	console.log("sucess")
+    })
+      // On success, run the following code
+      .then(function() {
+        console.log("sucess");
 	      // var row = $("<div>");
 	      // row.addClass("img");
 

@@ -46,7 +46,9 @@ module.exports = function(app) {
 			email: req.body.email,
 			phonenumber:req.body.phone,
 			username: req.body.username,
-			password:req.body.password
+			password:req.body.password,
+			image: req.body.image
+
 		}).then(function(dbUser){
 			res.json(dbUser);
 		});
