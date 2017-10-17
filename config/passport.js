@@ -9,27 +9,36 @@ passport.use(new LocalStrategy(
   {
     usernameField: "username"
   },
-  function(username, password, done) {
+
+  function(username1, password, done) {
+    console.log("before passport user search "
+      + username1 + " "+ password)
     // When a user tries to sign in this code runs
     db.User.findOne({
       where: {
-        username: username
+        username: username1
       }
     }).then(function(dbUser) {
       // If there's no user with the given email
+      console.log(dbUser)
+      console.log("db valid password")
+      console.log(dbUser.validPassword(password))
+
       if (!dbUser) {
         return done(null, false, {
           message: "Incorrect username."
         });
       }
+
       // If there is a user with the given email, but the password the user gives us is incorrect
       else if (!dbUser.verifyPassword(password)) {
+
+     
         return done(null, false, {
           message: "Incorrect password."
         });
       }
-      // If none of the above, return the user
-      return done(null, dbUser);
+
     });
   }
 ));
@@ -46,4 +55,7 @@ passport.deserializeUser(function(obj, cb) {
 });
 
 // Exporting our configured passport
+
 module.exports = passport;
+
+
