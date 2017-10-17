@@ -1,27 +1,30 @@
 var express = require("express");
 var bodyParser = require("body-parser");
-
-
-//Authentication Packages
 var session = require("express-session");
+// Requiring passport as we've configured it
 var passport = require("./config/passport");
 
-var app = express();
+// Setting up port and requiring models for syncing
 var PORT = process.env.PORT || 8080;
-
-
 var db = require("./models");
 
-// Sets up the Express app to handle data parsing
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.text());
-app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
-// Static directory
+// Sets up the Express app to handle data parsing
+var app = express();
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.use(express.static("public"));
+//app.use(bodyParser.text());
+//app.use(bodyParser.json({ type: "application/vnd.api+json" }));
+
+
+
 // We need to use sessions to keep track of our user's login status
-app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+app.use(session({ 
+	secret: "alskjdfh", 
+	resave: false, 
+	saveUninitialized: false 
+}));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -32,8 +35,8 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 //Routes
-require("./routes/user-routes.js")(app);
 require("./routes/html-routes.js")(app);
+require("./routes/user-routes.js")(app);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
