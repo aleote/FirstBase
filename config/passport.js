@@ -9,6 +9,7 @@ passport.use(new LocalStrategy(
   {
     usernameField: "username"
   },
+
   function(username1, password, done) {
     console.log("before passport user search "
       + username1 + " "+ password)
@@ -22,13 +23,16 @@ passport.use(new LocalStrategy(
       console.log(dbUser)
       console.log("db valid password")
       console.log(dbUser.validPassword(password))
+
       if (!dbUser) {
         return done(null, false, {
           message: "Incorrect username."
         });
       }
+
       // If there is a user with the given username, but the password the user gives us is incorrect
       else if (!dbUser.validPassword(password)) {
+
         return done(null, false, {
           message: "Incorrect password."
         });
@@ -52,4 +56,6 @@ passport.deserializeUser(function(obj, cb) {
 });
 
 // Exporting our configured passport
+
 module.exports = passport;
+
