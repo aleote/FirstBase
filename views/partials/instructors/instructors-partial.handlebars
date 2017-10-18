@@ -1,0 +1,25 @@
+
+ <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+
+ 	{{!-- <div style="background-image: url('{{img}}')" class="instructor-image" >  --}}
+	
+	<div class="inst-image" style="background-image: url({{img}})">
+		{{!-- <img src="{{img}}" alt=""> --}}
+
+	</div>
+ 	
+ 
+ 
+ <div>
+ 	<h3>{{name}}</h3>
+ 	<p>{{classes}}</p>
+	
+   <button class="btn btn-basic" id="instructor" data-target="#instModal{{id}}" data-toggle="modal" data-backdrop="static" data-keyboard="false">View</button>
+</div>
+
+</div>
+
+<div>
+{{> instructors/instructor-modal }}
+</div>
+

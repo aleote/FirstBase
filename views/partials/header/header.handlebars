@@ -1,0 +1,30 @@
+<nav class="navbar navbar-light">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="/">
+      	<img class="someClass" src= "/assets/img/logo-image-2.png"></a>
+
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active">
+			
+        	<a href="/">HOME</a></li>
+        <li><a href="/classes">CLASSES</a></li>
+        <li><a href="/instructors">OUR STAFF</a></li>
+        <li><a href="/contact-us">CONTACT US</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/user/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        {{!-- data-toggle="modal" data-target="#myModal" --}}
+
+        <li id="signin" data-target="#myModal" data-toggle="modal" data-backdrop="static" data-keyboard="false" ><a><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>

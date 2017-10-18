@@ -20,12 +20,22 @@ app.use(express.static("public"));
 // Set Handlebars.
 var exphbs = require("express-handlebars");
 
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+//updated by louis to include header
+app.engine("handlebars", exphbs({ 
+	title: "PAGE TITLE",
+	defaultLayout: "main",
+	partials: "/views/partials/header/header"
+	}));
 app.set("view engine", "handlebars");
+
+
 
 //Routes
 require("./routes/user-routes.js")(app);
 require("./routes/html-routes.js")(app);
+
+//updated by louis for controller file
+var routes = require("./controllers/firstBase_controller.js");
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
