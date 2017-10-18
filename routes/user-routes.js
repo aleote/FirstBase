@@ -11,26 +11,26 @@ module.exports = function(app) {
 
 
 	});
-//************* use these to for get and post...havent gotten it working yet*********
-	// app.get("/", function(req, res) {
-	// 	db.User.findAll({}).then(function(result){
+// ************* use these to for get and post...havent gotten it working yet*********
+	app.get("/", function(req, res) {
+		db.User.findAll({}).then(function(result){
 
 			
-	// 		var userDetails = {
-	// 			user: result
-	// 		};
-	// 		console.log(userDetails.user[0].id)
-	// 		 res.render("index", userDetails.user[0])
+			var userDetails = {
+				user: result
+			};
+			console.log(userDetails.user[0].id)
+			 res.render("index", userDetails.user[0])
 
-	// });
+	});
 
 
-	// app.post("/api/post", function(res) {
-	// 	db.User.findAll({}).then(function(result){
-	// 	console.log(result[0].username)
-	// 	});
-	// 	//res.send
-	// });
+	app.post("/api/post", function(res) {
+		db.User.findAll({}).then(function(result){
+		console.log(result[0].username)
+		});
+		//res.send
+	});
 //********************************************************************************
 
 
@@ -75,7 +75,8 @@ module.exports = function(app) {
 	})
 
 
-};
+})
+}
 
 
 

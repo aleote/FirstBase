@@ -28,10 +28,13 @@ router.post('/', function (req, res, next) {
     console.log("--------");
     console.log(req.file);
     console.log("--------");
-  res.json({
-    success: true,
-    message: "image loaded"
-  });
+    
+    res.json({
+      success: true,
+      message: "image loaded"
+    });
+
+    ////instead of the above res.json you can do res.redirect back to the same page as edit profile.
      // Everything went fine 
   })
 });

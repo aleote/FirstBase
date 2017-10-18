@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="UTF-8">
+  <title>Bootstrap Demo</title>
+
+  <!-- Bootstrap CDN -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+</head>
+
+<body>
+  <!-- Creates the Overall Grid -->
+  <div class="container">
+
+    <!-- Row 1 -->
+    <div class="row">
+      <div class="col-sm-12">
+        <h1>Manage Your Business</h1>
+      </div>
+    </div>
+
+    <!-- Row 2 -->
+     <div class="col-sm-4 col-md-4 col-lg-4" id="grid4">
+        <div class="gridDiv"><h2>CLASSES</h2>
+		        <div class="info">
+		        	<div class="subHeader"><a href="/">View</a></div>	        	
+		        	<div class="subHeader"><a href="/">Edit</a></div>
+		        	<div class="subHeader"><a href="/">Add</a></div>
+	       		</div>
+      	</div>
+    </div>
+
+     <div class="col-sm-4 col-md-4 col-lg-4" id="grid4">
+        <div class="gridDiv"><h2>INSTRUCTORS</h2>
+		        <div class="info">
+		        	<div class="subHeader"><a href="/">View</a></div>	        	
+		        	<div class="subHeader"><a href="/">Edit</a></div>
+		        	<div class="subHeader"><a href="/">Add</a></div>
+	       		</div>
+      	</div>
+    </div>
+
+     <div class="col-sm-4 col-md-4 col-lg-4" id="grid4">
+        <div class="gridDiv">
+        	<div class="main"><h2>USERS</h2>
+		        <div class="info">
+		        	<div class="subHeader"><a href="/">View</a></div>	        	
+		        	<div class="subHeader"><a href="/">Edit</a></div>
+		        	<div class="subHeader"><a href="/">Add</a></div>
+	       		</div>
+      	</div>
+    </div>
+</div>
+
+<div>
+	<ul>
+	  {{#each class}}
+	    {{#unless view}}
+		    {{#if}}
+		      {{> manager/add-Class view=true}}
+		    {{/if}}
+	    {{/unless}}
+	  {{/each}}
+	</ul>
+<div>
+
+<div>
+	<ul>
+	  {{#each instructor}}
+	    {{#if view}}
+	      {{> manager/add-instructor view=false}}
+	    {{/if}}
+	  {{/each}}
+	</ul>
+</div>
+
+<div>
+	<ul>
+	  {{#each users}}
+	    {{#if view}}
+	      {{> manager/add-user view=false}}
+	    {{/if}}
+	  {{/each}}
+	</ul>
+</div>
+
+

@@ -1,21 +1,27 @@
 <h1>Create an Account</h1>
-<form id="createDetails" method="POST" enctype="multipart/form-data">
+<form id="createDetails" method="POST" action="/profile" enctype="multipart/form-data">
 	<div>
-		<h4>First Name:</h4>
-		<input type="text" id="fname" name="name">
+		<label for="title">First Name:</label>
 		<br>
-		<h4>Last Name:</h4>
-		<input type="text" id="lname" name="lname">
+
+		<input type="text" class="form-control" id="fname" name="name">
 		<br>
-		<h4>Email:</h4>
-		<input type="text" id="email" name="email">
+
+		<label for="title">Last Name:</label>
+		<input type="text" class="form-control" id="lname" name="lname">
 		<br>
-		<h4>Phone Number:</h4>
-		<input type="text" id="phoneNum" name="phoneNumber">
+
+		<label for="title">Email:</label>
+		<input type="text" class="form-control" id="email" name="email">
 		<br>
-		<h4>Image:</h4>
-		<input type="file" id="proPic" name="proPic">
-		<button type="submit"id="uploadImg"class="uploadBtn">Upload</button>
+
+		<label for="title">Phone Number:</label>
+		<input type="text" class="form-control" id="phoneNum" name="phoneNumber">
+		<br>
+		
+		<label for="title">Image:</label>
+		<input type="file" class="form-control" id="proPic" name="profileImage">
+		<button type="submit" id="uploadImg"class="uploadBtn">Upload</button>
 	
 	</div>
 </form>
@@ -26,13 +32,15 @@
 <h1>Create User Name and Password</h1>
 <form id="createLog">
 	<div>
-		<h4>Username:</h4>
+		<label for="title">Username:</label>
 		<input type="text" id="username" name="newUserName">
 		<br>
-		<h4>Password:</h4>
+
+		<label for="title">Password:</label>
 		<input id="newPassword" type="password" name="Password">
 		<br>
-		<h4>Re-Enter Password:</h4>
+
+		<label for="title">Re-enter password:</label>
 		<input id="password2" type="password" name="newVerifyPass">
 	</div>
 </form>
@@ -69,37 +77,37 @@
 		}		
 	});
 
-	$("#uploadImg").on("click", function(event) {
-	  event.preventDefault();
+	// $("#uploadImg").on("click", function(event) {
+	//   event.preventDefault();
 
-	  // Make a newImage object
-	  var newImage = {
-	    profileImage: $("#proPic")[0].files[0]
-	  };
+	//   // Make a newImage object
+	//   var newImage = {
+	//     profileImage: $("#proPic")[0].files[0]
+	//   };
 
-	  console.log(newImage);
+	//   console.log(newImage);
 
-	  // Send an AJAX POST-request with jQuery
-	 $.ajax({
-      url: "/profile",
-      data: newImage,
-      method: "post",
-      processData: false,
-      Content-Type: "multipart/form-data"
+	//   // Send an AJAX POST-request with jQuery
+	//  $.ajax({
+ //      url: "/profile",
+ //      data: newImage,
+ //      method: "post",
+ //      processData: false,
+ //      ContentType: "form-data"
 
-    })
-      // On success, run the following code
-      .then(function() {
-        console.log("sucess");
-	      // var row = $("<div>");
-	      // row.addClass("img");
+ //    })
+ //      // On success, run the following code
+ //      .then(function() {
+ //        console.log("success");
+	//       // var row = $("<div>");
+	//       // row.addClass("img");
 
-	      // row.append("<p>" + newImage.image + " image: </p>");
-	      // row.append("<p>" + createUser.body + "</p>");
-	    });
+	//       // row.append("<p>" + newImage.image + " image: </p>");
+	//       // row.append("<p>" + createUser.body + "</p>");
+	//     });
 
-	  // Empty each input box by replacing the value with an empty string
-	  // $("#uploadImg").val("");
-	});
+	// //  Empty each input box by replacing the value with an empty string
+	//   // $("#uploadImg").val("");
+	// });
 </script>
  
