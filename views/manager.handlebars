@@ -1,0 +1,188 @@
+
+  <!-- Creates the Overall Grid -->
+  <div class="container">
+
+    <!-- Row 1 -->
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <h1 class="darkCustomColor center-content"> Manage Your Business</h1>
+      </div>
+    </div>
+
+    <!-- Row 2 -->
+     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" id="grid4">
+        <div class="gridDiv">
+
+        	<h2>CLASSES</h2>
+		        <div class="info">
+		        	 <button class="btn btn-basic">VIEW / EDIT</button>
+		        	 <br><br>
+		        	   <button class="btn btn-basic" data-toggle="modal" data-target="#addClassModal"  data-backdrop="static" data-keyboard="false">ADD NEW CLASS</button>
+
+		        	    <br> <br>
+	       		</div>
+      	</div>
+    </div>
+
+
+     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" id="grid4">
+        <div class="gridDiv"><h2>INSTRUCTORS</h2>
+<div class="info">
+	
+
+	<button class="btn btn-basic">VIEW / EDIT</button>
+		        	 <br><br>	        	
+	  
+
+
+	  <button class="btn btn-basic" data-toggle="modal" data-target="#addInstructorModal"  data-backdrop="static" data-keyboard="false"> ADD INSTRUCTOR</button>
+	  <br><br>	
+	
+      	</div>
+    </div>
+
+</div>
+
+
+
+
+
+<div class="row center-content" id="">
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+	<a name="classes"></a>
+	<div class="collapsible">
+
+		<h3 class="heading">Classes Content</h3>
+		<div class="contents">
+           
+            {{#each classes}}
+            {{> classes/classes-partial}}
+            {{/each}}
+		</div>
+	</div>	
+
+<hr>
+	<div class="collapsible">
+		<h3 class="heading">Instructors Content</h3>
+		
+		<div class="contents">
+            {{#each instructors}}
+            {{> instructors/instructors-partial}}
+            {{/each}}
+		</div>
+	</div>	
+	
+</div>
+
+</div>
+
+<!-- Modal CLASSES -->
+
+<div class="modal fade" role="dialog" id="addClassModal" data-target="#addClassModal">
+
+<div class="modal-dialog">
+				
+			<!-- Modal content-->
+<div class="modal-content">
+
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal">&times;</button>
+
+		<h2 class="modal-title">Add New Class</h2>
+			</div>
+			<div class="modal-body">
+
+<div class="form-group">
+						
+<label for="title">Class Name:</label>
+<input type="text" class="form-control" id="className">
+</div>
+
+
+
+<div class="form-group">
+<label for="body">Description:</label>
+<textarea class="form-control" rows="3" id="description"></textarea>
+</div>
+
+<div class="form-group">
+	<label for="category">Select Category:</label>
+	<select class="form-control" id="category">
+    <option value="Yoga">Yoga</option>
+    <option value="Boxing">Boxing</option>
+    <option value="Tennis">Tennis</option>
+	</select>
+</div>
+
+<div class="form-group">
+	<label for="date" >Class Time:</label>
+	<input id="startTime" type='text' class="form-control" placeholder="YYYY:MM:DD HH:MM:SS"/>
+
+</div>
+
+		<div class="modal-footer">
+			<button id="closeWindow" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+			<button id="addClassSubmit" type="submit" class="btn btn-basic submit">Submit</button>
+		</div>
+	</div>
+	</div>
+</div>
+</div>
+
+
+
+
+
+<!-- Modal INSTRUCTORS-->
+<div class="modal fade" role="dialog" id="addInstructorModal" data-target="#addInstructorModal">
+
+<div class="modal-dialog">
+				
+<!-- Modal content-->
+<div class="modal-content">
+
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal">&times;</button>
+
+		<h2 class="modal-title">Add New Instructor</h2>
+			</div>
+
+<div class="modal-body">
+
+<div class="form-group">
+						
+<label for="title">Instructor Name:</label>
+<input type="text" class="form-control" id="fullName">
+</div>
+
+
+<div class="form-group">
+<label for="body">Bio:</label>
+<textarea class="form-control" rows="3" id="bio"></textarea>
+</div>
+
+
+<div class="form-group">
+<label for="title">Classes:</label>
+<input type="text" class="form-control" id="teachClass" placeholder="Enter all classes for this teacher">
+</div>
+</div>
+
+
+
+<div class="modal-footer">
+			<button id="closeWindow" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+			<button id="addInstructorSubmit" type="submit" class="btn btn-basic submit">Submit</button>
+		</div>
+	</div>
+	</div>
+</div>
+</div>
+
+
+
+
+
+
