@@ -1,28 +1,121 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <script src="https://code.jquery.com/jquery.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-</head>
-<body>
-	<nav class="navbar navbar-default navbar-static-top">
-  		<div class="container">
-  			<a href="/register"><button>Sign up here</button></a>
-    		<div style='padding-top: 12px;'>
-				<button id="sign-in">Sign in here</button>
-			</div>
-			<div>
-				<a href="/user/members"><button id="only-members">For members</button></a>
-			</div>
-			<div>
-				<a href="/logout"><button id="logout">Log Out</button></a>
-			</div>
-  		</div>
-	</nav>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>{{title}}</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		
 
 
-	{{{ body }}}
-</body>
+
+		<script src="/assets/js/registerValidation.js"></script>
+		<!--  <script src="/assets/js/signin.js"></script> -->
+		<script src="/assets/js/addClass.js"></script>
+		<script src="/assets/js/form-get.js"></script>
+		
+
+		<link rel="stylesheet" href="/assets/css/reset.css">
+		<link rel="stylesheet" href="/assets/css/bootstrap.css">
+
+		
+		<link rel="stylesheet" href="/assets/css/style.css">
+		<link href="https://fonts.googleapis.com/css?family=Autour+One" rel="stylesheet">
+
+
+
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js"></script>
+		
+
+	</head>
+	<body>
+		
+		{{! Import the contents of header.html from partials}}
+		{{> header/header }}
+		{{! Every view gets inserted here }}
+		{{{body}}}
+		{{! Import the contents of footer.html from partials}}
+
+	
+		{{> header/footer}}
+		
+		<!-- Modal -->
+<div class="modal fade" role="dialog" id="myModal" data-target="#myModal">
+<div class="modal-dialog">
+				
+				<!-- Modal content-->
+<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="myModal">&times;</button>
+		<h1 class="modal-title">Sign In</h1>
+			</div>
+			<div class="modal-body">
+				<h1></h1>
+				<form id="createLog">
+					<div>
+						<div class="form-group">
+						<label>Username:</label>
+						<input type="text" id="username" name="newUserName">
+						</div>
+						<br>
+						<div class="form-group">
+						<label>Password:</label>
+						<input id="newPassword" type="password" name="Password">
+						</div>
+{{!-- 						<br>
+						<h4>Re-Enter Password:</h4>
+						<input id="password2" type="password" name="newVerifyPass"> --}}
+					</div>
+				</form>
+				<br>
+				<br>
+				<button id="loginAccount" data-toggle="modal" >Submit</button>
+											
+				</div>
+					<div class="modal-footer">
+						<button id="closeWindow" data-toggle="modal" type="button" class="btn btn-default" data-dismiss="myModal">Close</button>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+
+
+
+	</body>
+	<script type="text/javascript">
+		$("#loginAccount").on("click", function() {
+			$("#myModal").modal("hide");
+			console.log("yo")
+			var userName = $("#username").val();
+			var password = $("#newPassword").val();
+
+			var loginUser = {
+				username: userName,
+				password: password
+			}
+			
+				console.log(loginUser);
+				$.post("/user/login", loginUser)
+					.done(function(data) {
+						console.log(data)
+					})
+	
+			});
+
+		$("#closeWindow").on("click", function(){
+			$("#myModal").modal("hide");
+		})
+
+
+	</script>
 </html>
+
+
+
+
+
+
+
+

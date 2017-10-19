@@ -1,0 +1,493 @@
+
+div {
+	/*border: 1px solid red;*/
+}
+
+.navbar-light{
+	background-color: #fff !important;
+
+}
+
+a {
+  color: #77984f;
+  text-decoration: none;
+}
+
+h1, h2{
+	font-family: 'Autour One', cursive;
+	margin-top:5px;
+}
+
+h2 {
+	margin:0px 0px 10px 0px;
+}
+
+.navbar {
+  min-height: 60px;
+}
+
+.navbar-light .navbar-toggle .icon-bar {
+    background-color: #fff;
+}
+
+.navbar-nav > li > a  {
+	min-height:60px;
+	line-height: 30px;
+}
+
+.navbar-brand {
+	min-height:60px;
+	line-height: 30px;
+}
+
+.instructor-text > p {
+	font-size:17px;
+	color:#666;
+}
+
+
+#left-panel h2, #right-panel h2 {
+	font-size:2em;
+	color:#77984f;
+
+}
+
+.light-custom-color-back {
+	background-color: #ecf7e1;
+}
+
+#left-panel {
+	
+	text-align: left;
+	font-size: 14px;
+	color:#666;
+
+	padding:0px 0px 10px 0px;
+	margin: 10px 0px 15px 0px;	
+	overflow: auto;
+
+}
+
+#right-panel {	
+	
+	text-align: left;
+	font-size: 14px;
+	color:#666;
+
+	padding:10px 10px 10px 10px;
+	margin: 10px 0px 15px 0px;
+
+	overflow: auto;
+	text-align: center;
+
+}
+
+@media (max-width: 768px) {
+	#right-panel {
+		text-align:left;
+		margin-left:0px;
+		padding-left:0px;
+	}
+}
+
+
+#header-container > h1{
+	margin:0px;
+	padding:0px;
+	text-align: left;
+}
+
+
+.class-item {
+	background-color: black;
+	color: black;
+	/*height:100px;*/
+	margin-bottom:10px;
+	margin-left:20px;
+	overflow:auto;
+
+	background-color: #edceba;
+ 
+}
+
+.class-item-button {
+	width:15%;
+	float:right;
+	color:white;
+	
+	text-align: center;
+	background-color: #edceba;
+}
+
+button.class {
+	font-size: 36px;
+	
+	border-radius:100%;
+	height:60px;
+	width:60px;
+	
+	margin:10px;
+	background-color: #f3701d;
+
+	border:none;
+	outline:none;
+	
+}
+
+button.class:active {
+	background-color: black;
+
+	border:1px solid white;
+	outline:none;
+	
+}
+
+.btn-basic,
+.btn-basic:visited {
+	margin:0px;
+	background-color:#f3701d;
+	color: white;
+	outline:none; 
+}
+
+.btn-basic:focus {
+	outline:none;
+}
+
+.btn-basic:hover,
+.btn-basic:active,
+.btn-basic:focus {
+	background-color:#eac8b2;
+	color:#f3701d;
+
+}
+
+a:hover,
+a:focus {
+  color: #f26500;
+  text-decoration: underline;
+}
+
+
+p {
+	font-size: 14px;
+}
+
+
+
+
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+    background-color: #e7f5d6;
+    border-color: #fff;
+}
+
+* { 
+    -moz-box-sizing: border-box; 
+    -webkit-box-sizing: border-box; 
+     box-sizing: border-box; 
+}
+
+#success_message{ display: none;}
+
+/* update all styles above this line */
+
+body {
+	font-color:;
+
+}
+
+.left-align{
+	text-align:left;
+}
+
+.margins {
+	padding: 0px 20px 0px 20px;
+}
+
+.container{
+	/*text-align:center;*/
+	overflow:auto;
+	/*border-top: 1px solid black;*/
+}
+
+.navbar {
+	border-bottom: 1px solid grey;
+}
+
+.header-image img {
+	width:100%;
+	display:inline-block;
+	margin-right:20px;
+}
+
+.header-image {
+	width:100%;
+	max-height:450px;
+	overflow:hidden;
+}
+
+@media (max-width: 768px) {
+.header-image {
+	width:100%;
+	height:auto;
+}
+}
+
+
+#header-container h3{
+	font-size: 30px;
+}
+
+.top-border{
+	border-top: 1px dashed black;
+}
+
+.btn {
+	display:inline-block;
+}
+
+.pull-right {
+	margin-right:10px;
+	margin-top:-5px;
+
+}
+
+.shadow {
+   -moz-box-shadow:    inset 0 0 10px #000000;
+   -webkit-box-shadow: inset 0 0 10px #000000;
+   box-shadow:         inset 0 0 10px #000000;
+}
+
+
+.class-spots {
+	float:left;
+	width: 15%;
+	height:flex-column;
+	background-color: black;
+	color:#f3701d;
+	font-size:10px;
+	text-align:center;
+
+	background-color: #edceba;
+}
+
+.white {
+	color:white;
+	margin-top:8px;
+}
+
+.darkCustomColor{
+	color:#f3701d;
+}
+
+.darkCustomColor2{
+	color:#77984f;
+}
+
+.darkOrange{
+	color:#f3701d;
+	margin:0;
+	font-size:14px;
+}
+
+.class-item-body {
+	color:white;
+	width: 70%;
+	float:left;
+	background-color: #D0CED1;
+	padding: 0px 10px 0px 10px;
+
+	background-color: #f3701d;	
+}
+
+.class-item-body h3 {
+	text-transform:uppercase;
+	margin:5px 0px 3px 0px;
+	padding:5px 0px;
+
+	
+}
+
+.class-title-header {
+	padding:0px;
+	margin:0px;
+	color:#699240;
+	padding-left:20px;
+}
+
+#header-container > p {
+	color:#666;
+	text-align: left;
+}
+
+
+.class-item-desc {
+	text-transform: lowercase;
+}
+
+
+.spots-icon {
+	font-size: 40px;
+	text-align: center;
+}
+
+.hidden {
+	display:none;
+}
+
+.show{
+	display:inline;
+}
+
+.color {
+	background-color: red;
+	height: 30px;
+}
+
+
+#footer {
+	margin-top:30px;
+	height: 60px;
+	background-color: #f3721f;
+	text-align: center;
+	padding:10px;
+	width:100%;
+	color:white;
+	font-size:20px;
+}
+
+
+.instructor-image {
+	border-radius:300px;
+	width:300px;
+	height:300px;
+	text-align: center;
+	background-position: center;
+	background-size: 100%;
+	border:2px solid lightgray;
+
+}
+
+.inst-modal-img img {	
+	max-height:400px;
+
+}
+
+#inst-modal-close-btn {
+	margin:10px;
+}
+	
+
+#inst-modal-close-btn:hover {
+	
+	cursor:pointer;
+}
+
+
+.inst-image {
+	margin:0 auto;
+	width:300px;
+	height:300px;
+	border-radius:300px;
+	background-size:cover;
+	background-position: center;
+	border: 1px solid lightgrey;
+	/*overflow:hidden;*/
+
+}
+
+#instructor-list {
+	width:100%
+	padding:0% 5%;
+	text-align: center;
+}
+
+.center-content {
+	text-align:center;
+}
+
+#contact-form {
+	margin:0px 20px;
+}
+
+label {
+	color:#666;
+}
+
+
+.nav > li > a:hover,
+.nav > li > a:focus {
+  text-decoration: none;
+  background-color: #fff;
+}
+
+.inst-container {
+
+	margin-bottom:20px;
+}
+
+
+/*manager styles*/
+
+
+	#grid4{
+
+	}
+
+	.gridDiv > h2 { 
+		text-align: center;
+		background: #f3701d;
+		color:white;
+		padding:10px;
+		width: 110%;
+		margin-top:0px;
+	}
+	.info{
+		text-align: center;
+		background: white;
+/*		border-radius: 15px 15px 0px 0px;
+*/		color:white;
+	}
+	.subHeader{
+		padding: 5px;
+		font-size:20px;
+	}
+	.gridDiv{
+		margin-top: 10px;
+	    padding: 0px;
+		overflow: hidden;
+	    border: 1px solid black;
+	    border-radius: 17px 17px 0px 0px;
+	    box-sizing: border-box;
+	}
+button.submit {
+  float: right;
+}
+
+form#cms {
+  margin-top: 50px;
+}
+
+#cms textarea {
+  resize: none;
+}
+
+.panel-heading button.delete,
+button.edit {
+  float: right;
+  margin: 5px;
+}
+
+.top-30 {
+  margin-top: 30px;
+}
+
+.somewidth {
+	width:90%;
+}
+
+.input-group {
+	text-align:center;
+}
+
+

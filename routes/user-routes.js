@@ -6,13 +6,19 @@ var passport = require("../config/passport");
 module.exports = function(app) {
 
 
-	app.post('/user/login', passport.authenticate('local', { failureRedirect: '/user/register' }),
+	app.post("/user/login", passport.authenticate('local', { failureRedirect: '/user/register' }),
 	  	function(req, res) {
-		  	console.log("yea");
+		  	console.log("yea-------------------------");
 
 		   console.log(req.body) 
 		   console.log(req.user)
-		   res.render('index');
+
+		   //res.redirect("/manage-account");
+		res.render("manager", {
+		title: "MANAGE ACCOUNT", //import from navigation,
+		// burgers: data,
+
+	});
 	    //res.json(res);
   });
 
@@ -24,23 +30,40 @@ module.exports = function(app) {
 		res.render("loginTest");
 	});
 
-
 	app.post("/user/register", function(req, res) {
 		db.User.create({
-			fName: req.body.fname,
-			lName: req.body.lname,
+			fName: req.body.firstName,
+			lName: req.body.lastName,
 			email: req.body.email,
 			phonenumber:req.body.phone,
-			username: req.body.username,
-			password:req.body.password
+			username: req.body.userName,
+			password:req.body.pwd
 		}).then(function(dbUser){
 			res.json(dbUser);
 		});
 	});
 
 
-	  // Route for logging user out
-  app.get("/logout", function(req, res) {
+	app.post("/user/update", function(req, res) {
+		console.log("----body----")
+		console.log(req.body)
+		console.log("----user-----")
+		console.log(req.user)
+
+		db.Master.create({
+			userId: req.user.id,
+			classId: req.body.class
+		}).then(function(result){
+			console.log(result)
+			//res.render('manageAccount', {newCla})
+		})
+	});
+
+
+
+
+	// Route for logging user out
+  	app.get("/logout", function(req, res) {
     req.logout();
     res.redirect("/");
   });

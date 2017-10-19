@@ -7,6 +7,10 @@ module.exports = function(sequelize, DataTypes) {
     classId: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    className: {
+      type: DataTypes.STRING,
+      allowNull: false
     }
   });
 

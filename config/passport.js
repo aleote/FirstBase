@@ -32,7 +32,7 @@ passport.use(new LocalStrategy(
 
 
       // If there is a user with the given email, but the password the user gives us is incorrect
-      else if (!dbUser.verifyPassword(password)) {
+      else if (!dbUser.validPassword(password)) {
 
      
 
@@ -40,7 +40,8 @@ passport.use(new LocalStrategy(
           message: "Incorrect password."
         });
       }
-
+      // If none of the above, return the user
+      return done(null, dbUser);
 
     });
   }

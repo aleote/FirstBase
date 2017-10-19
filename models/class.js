@@ -7,25 +7,30 @@ module.exports = function(sequelize, DataTypes) {
     allowNull: false
     },
     startTime: {
-      type: DataTypes.DATE,
+      type: DataTypes.STRING,
       allowNull: false
     },
     endTime: {
-      type: DataTypes.DATE,
-      allowNull: false
+      type: DataTypes.STRING,
+      allowNull: true,
+      dafault: "60 mins"
     },
     instructorID: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
     },
     limitPpl: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: true,
+      default: "30"
     },
     enrolledPpl: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: true
     },
     category: {
+      type: DataTypes.STRING
+    },
+    description: {
       type: DataTypes.STRING
     }
   }, {

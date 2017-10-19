@@ -3,6 +3,7 @@ var bodyParser = require("body-parser");
 var session = require("express-session");
 // Requiring passport as we've configured it
 var passport = require("./config/passport");
+var routes = require("./controllers/firstBase_controller.js");
 
 // Setting up port and requiring models for syncing
 var PORT = process.env.PORT || 8080;
@@ -31,12 +32,24 @@ app.use(passport.session());
 // Set Handlebars.
 var exphbs = require("express-handlebars");
 
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+// app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+// app.set("view engine", "handlebars");
+
+
+app.engine("handlebars", exphbs({ 
+	title: "PAGE TITLE",
+	defaultLayout: "main",
+	partials: "/views/partials/header/header"
+	}));
+
 app.set("view engine", "handlebars");
+
 
 //Routes
 require("./routes/html-routes.js")(app);
 require("./routes/user-routes.js")(app);
+app.use("/", routes)
+
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================

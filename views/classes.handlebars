@@ -1,0 +1,21 @@
+<div class="container">
+	
+	<div class="row">
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+		
+		<div id="header-container">
+			<h1 class="col-lg-3 col-md-3 col-sm-4 col-xs-12 class-title-header">
+			FIND A CLASS
+			</h1>
+			<p class="col-lg-7 col-md-7 col-sm-8 col-xs-12">We are more than just a Yoga Studio. We offer a broad selection of classes to choose from, all tailored to help you achieve your fitness goals.Choose from one of our many classes below.<br> We hope to see you soon.</p>
+		</div>
+	</div>
+	<div id="left-panel" class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+		{{#each classes}}
+		{{> classes/classes-partial}}
+		{{/each}}
+	</div>
+	
+	</div>
+</div>
+
